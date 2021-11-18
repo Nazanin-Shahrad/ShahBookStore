@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ShahBookStore.Models.ViewModels;
+using ShahBookStore.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ShahBookStore.Controllers
+namespace ShahBookStore.Area.Customer.Controllers
 {
     [Area("Customer")]
     public class HomeController : Controller
