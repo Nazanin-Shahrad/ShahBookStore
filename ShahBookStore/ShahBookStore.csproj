@@ -39,8 +39,4 @@
     <ProjectReference Include="..\ShahsBooks.Utility\ShahsBooks.Utility.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Views\" />
-  </ItemGroup>
-
 </Project>
