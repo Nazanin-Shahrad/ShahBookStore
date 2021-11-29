@@ -22,6 +22,8 @@ namespace ShahBookStore.Areas.Admin.Controllers
         {
             return View();
         }
+
+
         public IActionResult Upsert(int? id)
         {
             Category category = new Category();
@@ -47,12 +49,14 @@ namespace ShahBookStore.Areas.Admin.Controllers
               if(category.Id == 0)
                 {
                     _unitOfWork.Category.Add(category);
-                    _unitOfWork.save();
+                  
                 }
               else
                 {
                     _unitOfWork.Category.Update(category);
                 }
+                _unitOfWork.Save();
+                return RedirectToAction(nameof(Index));
             }
             return View(category);
         }
@@ -64,6 +68,19 @@ namespace ShahBookStore.Areas.Admin.Controllers
             var allObj = _unitOfWork.Category.GetAll();
             return Json(new { data = allObj });
         }
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var ObjFormDb = _unitOfWork.Category.Get(id);
+            if(ObjFormDb == null)
+            {
+                return Json(new { success = false, message = "Error while deleting" });
+            }
+            _unitOfWork.Category.Remove(ObjFormDb);
+            _unitOfWork.Save();
+            return Json(new { success = true, message = "Delete successful" });
+        }
+
 
         
     }

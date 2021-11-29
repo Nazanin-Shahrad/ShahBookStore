@@ -1,5 +1,4 @@
-﻿
-using ShahsBooks.DataAccess.Repository.IRepository;
+﻿using ShahsBooks.DataAccess.Repository.IRepository;
 using ShahBookStore.DataAccess.Data;
 using System;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShahsBooks.DataAccess.Repository
 {
-   public  class UnitOfWork: IUnitOfWork
+   public  class UnitOfWork : IUnitOfWork
     { 
         private readonly ApplicationDbContext _db;
             public UnitOfWork(ApplicationDbContext db)
