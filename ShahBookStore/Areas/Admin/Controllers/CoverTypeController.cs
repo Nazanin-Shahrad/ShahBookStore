@@ -39,6 +39,29 @@ namespace ShahBookStore.Areas.Admin.Controllers
             return View(coverType);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public IActionResult Upsert(CoverType CoverType)
+        {
+            if (ModelState.IsValid)
+            {
+                if (CoverType.Id == 0)
+                {
+                    _unitOfWork.CoverType.Add(CoverType);
+
+                }
+                else
+                {
+                    _unitOfWork.CoverType.Update(CoverType);
+                }
+                _unitOfWork.Save();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(CoverType);
+        }
+
+
 
         #region API CALLS
         [HttpGet]
