@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShahsBooks.DataAccess.Repository.IRepository
 {
-    interface IProductRepository :IRepository<Product>
+    public interface IProductRepository :IRepository<Product>
     {
         void Update(Product product);
     }
