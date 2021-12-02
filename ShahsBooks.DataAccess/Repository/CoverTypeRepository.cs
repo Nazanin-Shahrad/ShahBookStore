@@ -3,6 +3,7 @@ using ShahsBooks.DataAccess.Repository.IRepository;
 using ShahsBooks.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,13 @@ namespace ShahsBooks.DataAccess.Repository
 
         public void Update(CoverType coverType)
         {
-            throw new NotImplementedException();
+            //  throw new NotImplementedException();
+            var objFromDb = _db.CoverTypes.FirstOrDefault(s => s.Id == coverType.Id);
+            if (objFromDb != null)
+            {
+                objFromDb.Name = coverType.Name;
+
+            }
         }
     }
 }
