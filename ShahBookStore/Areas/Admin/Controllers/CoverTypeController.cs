@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShahsBooks.DataAccess.Repository.IRepository;
+using ShahsBooks.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShahBookStore.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CoverTypeController : Controller
     {
 
@@ -21,6 +23,23 @@ namespace ShahBookStore.Areas.Admin.Controllers
             return View();
         }
 
+        public IActionResult Upsert(int? id)
+        {
+            CoverType coverType = new CoverType();
+            if (id == null)
+            {
+                return View(coverType);
+            }
+            coverType = _unitOfWork.CoverType.Get(id.GetValueOrDefault());
+            if (coverType == null)
+            {
+                return NotFound();
+
+            }
+            return View(coverType);
+        }
+
+
         #region API CALLS
         [HttpGet]
 
@@ -30,4 +49,5 @@ namespace ShahBookStore.Areas.Admin.Controllers
             return Json(new { data = allObj });
         }
     }
+    #endregion
 }

@@ -9,16 +9,12 @@
   <ItemGroup>
     <Compile Remove="Areas\Admin\Controllers\NewFolder\**" />
     <Compile Remove="Areas\Admin\NewFolder\**" />
-    <Compile Remove="Areas\Admin\Views\NewFolder\**" />
     <Content Remove="Areas\Admin\Controllers\NewFolder\**" />
     <Content Remove="Areas\Admin\NewFolder\**" />
-    <Content Remove="Areas\Admin\Views\NewFolder\**" />
     <EmbeddedResource Remove="Areas\Admin\Controllers\NewFolder\**" />
     <EmbeddedResource Remove="Areas\Admin\NewFolder\**" />
-    <EmbeddedResource Remove="Areas\Admin\Views\NewFolder\**" />
     <None Remove="Areas\Admin\Controllers\NewFolder\**" />
     <None Remove="Areas\Admin\NewFolder\**" />
-    <None Remove="Areas\Admin\Views\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
