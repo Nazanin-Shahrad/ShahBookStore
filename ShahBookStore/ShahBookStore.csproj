@@ -37,4 +37,8 @@
     <ProjectReference Include="..\ShahsBooks.Utility\ShahsBooks.Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\products\" />
+  </ItemGroup>
+
 </Project>
