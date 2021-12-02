@@ -7,7 +7,7 @@
 }
 
 <form method="post" enctype="multipart/form-data">
-    <div class="row p-3 border">
+    <div class="row p-3 border text-white">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @if (Model.Product.Id != 0)       // if this value is null it will not display 'Edit Category', change to  0
         {
@@ -19,7 +19,7 @@
             <h2 class="text-primary">@title</h2>
         </div>
         <div class="col-8 pt-4">
-            <div class="form-group row">
+            <div class="form-group row text-white">
                 <div class="col-4">
                     <label asp-for="Product.Title"></label>
                 </div>
@@ -28,7 +28,7 @@
                     <span asp-validation-for="Product.Title" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row text-white">
                 <div class="col-4">
                     <label asp-for="Product.ISBN"></label>
                 </div>
@@ -37,7 +37,7 @@
                     <span asp-validation-for="Product.ISBN" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row text-white">
                 <div class="col-4">
                     <label asp-for="Product.Author"></label>
                 </div>
@@ -46,7 +46,7 @@
                     <span asp-validation-for="Product.Author" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row text-white">
                 <div class="col-4">
                     <label asp-for="Product.Description"></label>
                 </div>
@@ -54,7 +54,7 @@
                     <textarea asp-for="Product.Description" class="form-control"></textarea>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row text-white">
                 <div class="col-4">
                     <label asp-for="Product.ListPrice"></label>
                 </div>
@@ -63,7 +63,7 @@
                     <span asp-validation-for="Product.ListPrice" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row text-white">
                 <div class="col-4">
                     Category
                 </div>
@@ -73,17 +73,17 @@
                     <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row text-white">
                 <div class="col-4">
                     Cover Type
                 </div>
                 <div class="col-8">
-                    @Html.DropDownListFor(m => m.Product.CategoryId, Model.CategoryList, "-Select a Cover Type",
+                    @Html.DropDownListFor(m => m.Product.CoverTypeId, Model.CoverTypeList, "-Select a Cover Type",
                    new { @class = "form-control" })
                     <span asp-validation-for="Product.CoverTypeId" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row  text-white">
                 <div class="col-4">
                     Image
                 </div>
@@ -91,7 +91,7 @@
                     <input type="file" name="files" id="uploadBox" multiple class="form-control" />
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row  text-white">
                 <div class="col-8 offset-4">
                     @if (Model.Product.Id != 0)
                     {
@@ -99,7 +99,7 @@
                     }
                     else
                     {
-                        <div class="row">
+                        <div class="row  text-white">
                             <div class="col">
                                 <button type="submit" onclick="return validateInput()" class="btn btn-primary form-control">Create</button>
                             </div>
@@ -129,7 +129,7 @@
 
     function validateInput() {
         if (document.getElementById("uploadBox").value = "") {
-            swal("Error", "please seclet an image", "error");
+            swal("Error", "please select an image", "error");
             return false;
         }
         return true;
